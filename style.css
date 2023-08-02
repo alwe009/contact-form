@@ -52,13 +52,21 @@ form .field input::placeholder,
 form .message textarea::placeholder {
   color: #bfbfbf;
 }
+form .field input:focus,
+form .message textarea:focus {
+  border: 2px solid #0d6efd;
+}
 .wrapper form i {
   position: absolute;
   left: 15px;
   top: 50%;
   color: #bfbfbf;
   font-size: 1.1rem;
+  pointer-events: none;
   transform: translateY(-50%);
+}
+form .field input:focus ~ i {
+  color: #0d6efd;
 }
 form .message {
   position: relative;
@@ -73,4 +81,50 @@ form .message textarea {
   min-height: 120px;
   max-height: 300px;
   padding: 15px 20px 0 48px;
+}
+form .button-area {
+  margin: 25px 0;
+  display: flex;
+  align-items: center;
+}
+.button-area button {
+  font-size: 18px;
+  padding: 13px 25px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #0d6efd;
+}
+.button-area span {
+  color: #0d6efd;
+  margin-left: 30px;
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .wrapper header {
+    text-align: center;
+  }
+  form .dbl-field {
+    flex-direction: column;
+    margin-bottom: 0px;
+  }
+  .dbl-field .field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  form .message textarea {
+    resize: none;
+  }
+  form .button-area {
+    flex-direction: column;
+  }
+  .button-area span {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .button-area button {
+    width: 100%;
+  }
 }
